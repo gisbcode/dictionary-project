@@ -13,7 +13,7 @@ export default function Dictionary() {
     event.preventDefault();
   }
 
-  let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+  let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=book&key=39a3014fd34afe90bc14c4tc7oed280d`;
   console.log(apiUrl);
   axios.get(apiUrl).then(handleResponse);
 
