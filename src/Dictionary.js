@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-    let [keyword, setKeyword] = useState("");
+  let [keyword, setKeyword] = useState("");
 
-  function Search(event) {
+  function search(event) {
     event.preventDefault();
     alert(`Searching for ${keyword}`);
   }
@@ -15,8 +15,12 @@ export default function Dictionary() {
 
   return (
     <div className="Dictionary">
-      <form onSubmit={Search}>
-        <input type="search" onChange={keywordChange} />
+      <form onSubmit={search}>
+        <input
+          type="search"
+          value={keyword}
+          onChange={keywordChange}
+        />
       </form>
     </div>
   );
