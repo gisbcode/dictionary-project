@@ -1,16 +1,19 @@
 import React from "react";
 
 export default function Meaning(props) {
-    console.log(props.meaning);
-    if (props.meaning) {
-        return (
-          <div className="Meaning">
-            <h3>{props.meaning.partOfSpeech}</h3>
-            <p>{props.meaning.definitions[0].definition}</p>
-            <p>{props.meaning.definitions[0].example}</p>
-          </div>
-        );
-    } else {
-        return null;
-    }
+  if (!props.meaning || !props.meaning.definitions) {
+    return null;
+  }
+
+  let definition = props.meaning.definitions[0];
+  let example = definition.example;
+
+  return (
+    <div className="Meaning">
+      <h3>{props.meaning.partOfSpeech}</h3>
+      <p>{definition.definition}</p>
+
+      {example && <p className="example">"{example}"</p>}
+    </div>
+  );
 }

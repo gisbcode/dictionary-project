@@ -4,9 +4,10 @@ import "./Dictionary.css";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
+  let [results, setResults] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data);
+    setResults(response.data);
   }
 
   function search(event) {
@@ -24,8 +25,20 @@ export default function Dictionary() {
   return (
     <div className="Dictionary">
       <form onSubmit={search}>
-        <input type="search" value={keyword} onChange={keywordChange} />
+        <input
+          type="search"
+          value={keyword}
+          onChange={keywordChange}
+          placeholder="Search a word..."
+        />
       </form>
+
+      {results && (
+        <div className="Results">
+          <h2>{results.word}</h2>
+          <p>{results.meanings[0].definition}</p>
+        </div>
+      )}
     </div>
   );
 }
