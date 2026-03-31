@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Results from "./Results";
 import "./Dictionary.css";
 
 export default function Dictionary() {
@@ -30,15 +31,11 @@ export default function Dictionary() {
           value={keyword}
           onChange={keywordChange}
           placeholder="Search a word..."
+          autoFocus
         />
       </form>
 
-      {results && (
-        <div className="Results">
-          <h2>{results.word}</h2>
-          <p>{results.meanings[0].definition}</p>
-        </div>
-      )}
+      <Results results={results} />
     </div>
   );
 }
