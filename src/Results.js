@@ -2,23 +2,29 @@ import React from "react";
 import Meaning from "./Meaning";
 
 export default function Results(props) {
-    console.log(props.results);
-  if (props.results) {
+  console.log("Results props:", props.results);
+
+  if (!props.results) {
+    return null;
+  }
+
+  let data = props.results;
+
+  if (Array.isArray(data)) {
+    data = data[0];
+  }
+
+  if (!data || !data.meanings) {
+    return null;
+  }
+
   return (
     <div className="Results">
-      <h2>{props.results.word}</h2>
+      <h2>{data.word}</h2>
 
-      {props.results.meanings.map(function (meaning, index) {
-        return (
-        <div key={index}>
-        <Meaning meaning={meaning} />
-        </div>
-        );
+      {data.meanings.map(function (meaning, index) {
+        return <Meaning meaning={meaning} key={index} />;
       })}
     </div>
   );
-} else {
-    return null;
-  }
 }
-
