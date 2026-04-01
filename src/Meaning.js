@@ -11,9 +11,11 @@ export default function Meaning(props) {
 
       {props.meaning.definitions.map(function (definition, index) {
         return (
-          <div key={index}>
+          <div key={index} className="Definition">
             <p>{definition.definition}</p>
-            {definition.example && <p>{definition.example}</p>}
+            {definition.example && (
+              <p className="Example">{definition.example}</p>
+            )}
           </div>
         );
       })}

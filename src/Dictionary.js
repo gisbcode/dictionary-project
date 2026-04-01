@@ -6,12 +6,9 @@ import "./Dictionary.css";
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [results, setResults] = useState(null);
-  let [error, setError] = useState("");
 
   function handleResponse(response) {
-    console.log("API response:", response.data);
     setResults(response.data);
-    setError("");
   }
 
   function search(event) {
@@ -19,14 +16,7 @@ export default function Dictionary() {
 
     let apiKey = "39a3014fd34afe90bc14c4tc7oed280d";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
-
-    axios
-      .get(apiUrl)
-      .then(handleResponse)
-      .catch(function (error) {
-        console.log("API error:", error);
-        setError("Something went wrong. Check your API response.");
-      });
+    axios.get(apiUrl).then(handleResponse);
   }
 
   function keywordChange(event) {
@@ -44,8 +34,6 @@ export default function Dictionary() {
           autoFocus
         />
       </form>
-
-      {error && <p>{error}</p>}
 
       <Results results={results} />
     </div>

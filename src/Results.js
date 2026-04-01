@@ -2,8 +2,6 @@ import React from "react";
 import Meaning from "./Meaning";
 
 export default function Results(props) {
-  console.log("Results props:", props.results);
-
   if (!props.results) {
     return null;
   }
@@ -21,6 +19,8 @@ export default function Results(props) {
   return (
     <div className="Results">
       <h2>{data.word}</h2>
+
+      {data.phonetic && <p>{data.phonetic}</p>}
 
       {data.meanings.map(function (meaning, index) {
         return <Meaning meaning={meaning} key={index} />;
