@@ -1,0 +1,15 @@
+.Synonyms {
+  margin-top: 10px;
+}
+
+.Synonyms ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.Synonyms li {
+  display: inline-block;
+  margin-right: 12px;
+  color: #885df1;
+}

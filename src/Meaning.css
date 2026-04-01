@@ -1,0 +1,20 @@
+.Meaning {
+  margin-top: 25px;
+}
+
+.Meaning h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+.Definition {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.Example {
+  color: #888;
+  font-style: italic;
+  margin-top: 5px;
+}

@@ -1,14 +1,26 @@
-.Dictionary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
+.Dictionary .search-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.Dictionary h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .Dictionary input {
-    width: 250px;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border: 1px solid #8f8d8d;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.Dictionary small {
+  display: block;
+  margin-top: 8px;
+  color: #888;
 }

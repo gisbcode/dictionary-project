@@ -1,0 +1,12 @@
+.Results {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.Results h2 {
+  font-size: 36px;
+  margin: 0 0 10px;
+  text-transform: lowercase;
+}
