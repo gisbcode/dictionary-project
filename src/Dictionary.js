@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import "./Dictionary.css";
@@ -8,20 +8,14 @@ export default function Dictionary(props) {
   const [results, setResults] = useState(null);
 
   function handleResponse(response) {
-    setResults(response.data[0]);
+    setResults(response.data);
   }
-  
 
-  const load = useCallback(() => {
+  const load = () => {
     let apiKey = "39a3014fd34afe90bc14c4tc7oed280d";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
-  }, [keyword]);
-
-  
-  useEffect(() => {
-    load();
-  }, [load]);
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,6 +24,11 @@ export default function Dictionary(props) {
 
   function updateKeyword(event) {
     setKeyword(event.target.value);
+  }
+
+  if (results === null) {
+    load();
+    return "Loading...";
   }
 
   return (
