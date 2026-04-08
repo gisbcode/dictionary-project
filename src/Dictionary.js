@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Results from "./Results";
 import Photos from "./Photos";
@@ -17,19 +17,22 @@ export default function Dictionary(props) {
     setPhotos(response.data.photos);
   }
 
-  function search() {
-    // 🔊 FREE DICTIONARY API (audio included)
+  // ✅ FIX: wrap search in useCallback
+  const search = useCallback(() => {
     let dictionaryApiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(dictionaryApiUrl).then(handleDictionaryResponse);
 
-    // 🖼️ PEXELS API
-    let pexelsApiKey =
-      "wwT4SEN3DiDgSlUwCPlXMj9umXPdOHsIIPuwrprFi2pQ7C1338eoqGpe";
+    let pexelsApiKey = "YOUR_PEXELS_API_KEY";
     let headers = { Authorization: pexelsApiKey };
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
 
-    axios.get(pexelsUrl, { headers: headers }).then(handlePexelsResponse);
-  }
+    axios.get(pexelsUrl, { headers }).then(handlePexelsResponse);
+  }, [keyword]);
+
+  // ✅ FIX: include search in dependency
+  useEffect(() => {
+    search();
+  }, [search]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -40,10 +43,6 @@ export default function Dictionary(props) {
     setKeyword(event.target.value);
   }
 
-  useEffect(() => {
-    search();
-  }, []);
-
   return (
     <div className="Dictionary">
       <section className="search-box">
@@ -52,7 +51,7 @@ export default function Dictionary(props) {
         <form onSubmit={handleSubmit}>
           <input
             type="search"
-            defaultValue={props.defaultKeyword}
+            value={keyword}
             onChange={updateKeyword}
             placeholder="Type a word..."
             autoFocus
