@@ -1,12 +1,14 @@
 .Results {
   background: white;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
 }
 
 .Results h2 {
   font-size: 36px;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
   text-transform: lowercase;
 }

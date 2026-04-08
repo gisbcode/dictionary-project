@@ -5,11 +5,13 @@
 .Meaning h3 {
   font-size: 22px;
   margin-bottom: 10px;
+  font-weight: 600;
   text-transform: lowercase;
+  color: #333;
 }
 
 .Definition {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   line-height: 1.6;
 }
 

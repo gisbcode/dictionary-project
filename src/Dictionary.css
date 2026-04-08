@@ -1,7 +1,7 @@
 .Dictionary .search-box {
   background: white;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
 }
@@ -9,6 +9,7 @@
 .Dictionary h1 {
   font-size: 24px;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .Dictionary input {
@@ -17,6 +18,13 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
+  transition: all 150ms ease-in-out;
+}
+
+.Dictionary input:focus {
+  border-color: #885df1;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(136, 93, 241, 0.2);
 }
 
 .Dictionary small {

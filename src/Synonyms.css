@@ -2,14 +2,19 @@
   margin-top: 10px;
 }
 
+.Synonyms strong {
+  color: #555;
+}
+
 .Synonyms ul {
   list-style: none;
   padding: 0;
-  margin: 8px 0 0;
+  margin-top: 8px;
 }
 
 .Synonyms li {
   display: inline-block;
-  margin-right: 12px;
+  margin-right: 10px;
   color: #885df1;
+  font-weight: 500;
 }
