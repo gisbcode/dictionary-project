@@ -2,22 +2,26 @@ import React from "react";
 import "./Photos.css";
 
 export default function Photos(props) {
-  if (!props.photos) return null;
+  if (!props.photos || props.photos.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="Photos">
+    <section className="Photos">
       <div className="grid">
         {props.photos.map(function (photo, index) {
           return (
-            <img
-              src={photo.src.medium}
-              alt=""
+            <a
+              href={photo.src.original}
+              target="_blank"
+              rel="noreferrer"
               key={index}
-              className="img-fluid"
-            />
+            >
+              <img src={photo.src.landscape} alt={photo.alt} />
+            </a>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

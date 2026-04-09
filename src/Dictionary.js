@@ -13,23 +13,23 @@ export default function Dictionary(props) {
     setResults(response.data[0]);
   }
 
-  function handlePexelsResponse(response) {
-    setPhotos(response.data.photos);
-  }
+function handlePexelsResponse(response) {
+  console.log(response.data);
+  setPhotos(response.data.photos);
+}
 
-  // ✅ FIX: wrap search in useCallback
   const search = useCallback(() => {
     let dictionaryApiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
     axios.get(dictionaryApiUrl).then(handleDictionaryResponse);
 
-    let pexelsApiKey = "YOUR_PEXELS_API_KEY";
+    let pexelsApiKey =
+      "wwT4SEN3DiDgSlUwCPlXMj9umXPdOHsIIPuwrprFi2pQ7C1338eoqGpe";
     let headers = { Authorization: pexelsApiKey };
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
 
     axios.get(pexelsUrl, { headers }).then(handlePexelsResponse);
   }, [keyword]);
 
-  // ✅ FIX: include search in dependency
   useEffect(() => {
     search();
   }, [search]);
