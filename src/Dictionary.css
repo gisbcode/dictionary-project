@@ -1,34 +1,49 @@
 .Dictionary .search-box {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(120, 87, 255, 0.08);
+  margin-bottom: 24px;
+  border: 1px solid rgba(136, 93, 241, 0.08);
 }
 
 .Dictionary h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  color: #272142;
+}
+
+.Dictionary form {
+  margin-bottom: 8px;
 }
 
 .Dictionary input {
   width: 100%;
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 16px 18px;
+  border: 1px solid #ddd8f7;
+  border-radius: 12px;
   font-size: 16px;
-  transition: all 150ms ease-in-out;
+  color: #272142;
+  background: #fff;
+  box-sizing: border-box;
+  transition: all 180ms ease-in-out;
+}
+
+.Dictionary input::placeholder {
+  color: #a29db5;
 }
 
 .Dictionary input:focus {
-  border-color: #885df1;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(136, 93, 241, 0.2);
+  border-color: #885df1;
+  box-shadow: 0 0 0 4px rgba(136, 93, 241, 0.12);
 }
 
 .Dictionary small {
   display: block;
-  margin-top: 8px;
-  color: #888;
+  margin-top: 10px;
+  color: #8b849f;
+  font-size: 13px;
 }
