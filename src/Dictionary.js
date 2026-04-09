@@ -13,18 +13,18 @@ export default function Dictionary(props) {
     setResults(response.data[0]);
   }
 
-function handlePexelsResponse(response) {
-  console.log(response.data);
-  setPhotos(response.data.photos);
-}
+  function handlePexelsResponse(response) {
+    setPhotos(response.data.photos);
+  }
 
   const search = useCallback(() => {
-    let dictionaryApiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(dictionaryApiUrl).then(handleDictionaryResponse);
+    // Dictionary API
+    let dictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios.get(dictionaryUrl).then(handleDictionaryResponse);
 
-    let pexelsApiKey =
-      "wwT4SEN3DiDgSlUwCPlXMj9umXPdOHsIIPuwrprFi2pQ7C1338eoqGpe";
-    let headers = { Authorization: pexelsApiKey };
+    // Pexels API
+    let pexelsKey = "wwT4SEN3DiDgSlUwCPlXMj9umXPdOHsIIPuwrprFi2pQ7C1338eoqGpe";
+    let headers = { Authorization: pexelsKey };
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
 
     axios.get(pexelsUrl, { headers }).then(handlePexelsResponse);
@@ -66,3 +66,4 @@ function handlePexelsResponse(response) {
     </div>
   );
 }
+

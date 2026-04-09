@@ -7,21 +7,12 @@ export default function Photos(props) {
   }
 
   return (
-    <section className="Photos">
+    <div className="Photos">
       <div className="grid">
         {props.photos.map(function (photo, index) {
-          return (
-            <a
-              href={photo.src.original}
-              target="_blank"
-              rel="noreferrer"
-              key={index}
-            >
-              <img src={photo.src.landscape} alt={photo.alt} />
-            </a>
-          );
+          return <img src={photo.src.medium} alt={photo.alt} key={index} />;
         })}
       </div>
-    </section>
+    </div>
   );
 }
