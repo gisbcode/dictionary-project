@@ -1,19 +1,27 @@
 body {
-  background: #f9f7fe;
+  margin: 0;
+  background: linear-gradient(180deg, #f9f7fe 0%, #f4f0ff 100%);
   font-family: "Poppins", sans-serif;
+  color: #272142;
 }
 
 .App {
   max-width: 960px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 50px 20px 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 footer {
   text-align: center;
   font-size: 13px;
-  color: #888;
-  margin-top: 30px;
+  color: #7a748f;
+  margin-top: 28px;
+  line-height: 1.6;
 }
 
 footer a {
